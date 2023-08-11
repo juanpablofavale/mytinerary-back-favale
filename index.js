@@ -1,8 +1,8 @@
 import express from "express";
 import cityRouter from "./router/cityRouter.js";
-
+import './config/database.js'
 const server = express()
-const PORT = 3000
+import 'dotenv/config.js'
 
 server.use('/cities', cityRouter)
 
@@ -10,4 +10,4 @@ server.get('/', (req, res, next) => {
     res.send("Servidor de prueba en express")
 })
 
-server.listen(PORT, () => {console.log("Servidor escuchando en el puerto " + PORT)})
+server.listen(process.env.PORT, () => {console.log("Servidor escuchando en el puerto " + process.env.PORT)})
