@@ -1,0 +1,199 @@
+{
+    "data": [
+        {
+            "name": "Sierra de la Ventana",
+            "image": "./ciudades/sierraVentana.jpg",
+            "state": "Buenos Aires",
+            "country": "Argentina",
+            "interests": [
+                    "Cerro Ventana",
+                    "Parque Provincial Ernesto Tornquist",
+                    "Cerro Ceferino"
+            ],
+            "anniversary": "January 17",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25107.282999283052!2d-61.7954261!3d-38.1306497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95eceecaad346b1f%3A0xc32bb114493c92a5!2sSierra%20de%20la%20Ventana%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses-419!2sar!4v1691792336980!5m2!1ses-419!2sar"
+        },
+        {
+            "name": "Villa La Angostura",
+            "image": "./ciudades/7Lagos.jpg",
+            "state": "Neuquen",
+            "country": "Argentina",
+            "interests": [
+                    "Camino de los Siete Lagos",
+                    "Fiesta de los Jardines",
+                    "El Mesidor"
+            ],
+            "anniversary": "May 15",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12087.77393741527!2d-71.65196122394786!3d-40.76326773977014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9610bf42e48faa93%3A0x205ebc786470b636!2sVilla%20La%20Angostura%2C%20Neuqu%C3%A9n!5e0!3m2!1ses-419!2sar!4v1691793315394!5m2!1ses-419!2sar"
+        },
+        {
+            "name": "San Carlos de Bariloche",
+            "image": "./ciudades/bariloche.jpg",
+            "state": "Rio Negro",
+            "country": "Argentina",
+            "interests": [
+                    "San Carlos de Bariloche",
+                    "Lago Nahuel Huapi",
+                    "Parque Nacional los Arrayanes"
+            ],
+            "anniversary": "May 3",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d384681.9803912815!2d-71.66954588518776!3d-41.12736578472119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961a7b1520c860e5%3A0x8210ae97cb7b9a65!2sSan%20Carlos%20de%20Bariloche%2C%20R%C3%ADo%20Negro!5e0!3m2!1ses-419!2sar!4v1691793654603!5m2!1ses-419!2sar"
+        },
+        {
+            "name": "El Bolson",
+            "image": "./ciudades/lagoPuelo.jpg",
+            "state": "Rio Negro",
+            "country": "Argentina",
+            "interests": [
+                    "Lago Puelo", 
+                    "Rio Azul",
+                    "Cerro Piltriquitrón"
+            ],
+            "anniversary": "January 28",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47465.79493400347!2d-71.56514572698786!3d-41.96566436520654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961bbe292d49ca89%3A0xa4fcd4026336e0f6!2zRWwgQm9sc8OzbiwgUsOtbyBOZWdybw!5e0!3m2!1ses-419!2sar!4v1691794426075!5m2!1ses-419!2sar"
+        },
+        {
+            "name": "Cerro Colorado",
+            "image": "./ciudades/cerroColorado.jpg",
+            "state": "Cordoba",
+            "country": "Argentina",
+            "interests": [
+                    "Reserva Natural Cerro Colorado",
+                    "Museo Arqueologico Cerro Colorado",
+                    "Museo Atahualpa Yupanqui"
+            ],
+            "anniversary": "February 26",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13807.730553773255!2d-63.941199780802805!3d-30.09611548340723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9431931a1726e7e5%3A0x1c4e5d16ee5040f!2sCerro%20Colorado%2C%20C%C3%B3rdoba!5e0!3m2!1ses-419!2sar!4v1691794773943!5m2!1ses-419!2sar"
+        },
+        {
+            "name": "Oberá",
+            "image": "./ciudades/termasSelva.jpeg",
+            "state": "Misiones",
+            "country": "Argentina",
+            "interests": [
+                    "Termas de la Selva",
+                    "Jardín de los Pájaros",
+                    "Monte Aventura"
+            ],
+            "anniversary": "July 9",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113262.06460214025!2d-55.2063110455611!3d-27.486703349514613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f8f54706b1b501%3A0x2a4796c88edb4c9!2sOber%C3%A1%2C%20Misiones!5e0!3m2!1ses-419!2sar!4v1691795169111!5m2!1ses-419!2sar"
+        },
+        {
+            "name": "Las Heras",
+            "image": "./ciudades/parqueAconcagua.jpg",
+            "state": "Mendoza",
+            "country": "Argentina",
+            "interests": [
+                    "Parque Aconcagua",
+                    "Reserva Natural Villavicencio",
+                    "El Plumerillo"
+            ],
+            "anniversary": "January 31",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214549.63784960945!2d-68.99204537198536!3d-32.836298870336876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967e08b3ec6db3a1%3A0x4ccea64229b9189a!2sLas%20Heras%2C%20Mendoza!5e0!3m2!1ses-419!2sar!4v1691795534291!5m2!1ses-419!2sar"
+        },
+        {
+            "name": "Gualeguaychú",
+            "image": "./ciudades/castilloLibertad.jpeg",
+            "state": "Entre Rios",
+            "country": "Argentina",
+            "interests": [
+                    "Castillo de la isla Libertad",
+                    "Termas de Gualeguaychú",
+                    "Corsodromo de Gualeguaychu"
+            ],
+            "anniversary": "October 18",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214134.28158958!2d-58.71323939351884!3d-33.007778688627624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95baa828f3333543%3A0xa95f93d6a79497c1!2zR3VhbGVndWF5Y2jDuiwgRW50cmUgUsOtb3M!5e0!3m2!1ses-419!2sar!4v1691796109810!5m2!1ses-419!2sar"
+        },
+        {
+            "name": "Purmamarca",
+            "image": "./ciudades/sieteColores.jpg",
+            "state": "Jujuy",
+            "country": "Argentina",
+            "interests": [
+                    "Cerro Siete Colores",
+                    "Paseo de los Colorados",
+                    "Laguna de Guayatayoc"
+            ],
+            "anniversary": "April 17",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14608.021911586946!2d-65.51162313410276!3d-23.747184067782367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941b49ca833a1183%3A0x9d3ebf375117fa08!2sPurmamarca%2C%20Jujuy!5e0!3m2!1ses-419!2sar!4v1691796458926!5m2!1ses-419!2sar"
+        },
+        {
+            "name": "Ushuaia",
+            "image": "./ciudades/parqueTierradelFuego.jpeg",
+            "state": "Tierra del Fuego",
+            "country": "Argentina",
+            "interests": [
+                    "Parque Nacional Tierra del Fuego",
+                    "Tren del Fin del Mundo",
+                    "Museo Maritimo y del Presidio"
+            ],
+            "anniversary": "October 12",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d147167.18614570564!2d-68.46760583229977!3d-54.80655363920587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbc4c22b5bad109bf%3A0x5498473dba43ebfc!2sUshuaia%2C%20Tierra%20del%20Fuego!5e0!3m2!1ses-419!2sar!4v1691796827924!5m2!1ses-419!2sar"
+        },
+        {
+            "name": "Puerto Iguazu",
+            "image": "./ciudades/puertoIguazu.webp",
+            "state": "Misiones",
+            "country": "Argentina",
+            "interests": [
+                    "Cataratas del Iguazu",
+                    "Garganta del Diablo",
+                    "Sendero Macuco"
+            ],
+            "anniversary": "September 11",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28780.984699724475!2d-54.568176199999996!3d-25.61743795!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94f6923af74e96dd%3A0xb4b8eeda942aae07!2sPuerto%20Iguaz%C3%BA%2C%20Misiones!5e0!3m2!1ses-419!2sar!4v1691797141474!5m2!1ses-419!2sar"
+        },
+        {
+            "name": "Calafate",
+            "image": "./ciudades/peritoMoreno.jpeg",
+            "state": "Santa Cruz",
+            "country": "Argentina",
+            "interests": [
+                    "Perito Moreno",
+                    "Parque Nacional los Glaciares",
+                    "Lago Argentino"
+            ],
+            "anniversary": "December 7",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d163012.39088828798!2d-72.46262340077654!3d-50.32797124894855!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbdbb0cc0138f62cb%3A0x30d4035d88e4dc69!2sEl%20Calafate%2C%20Santa%20Cruz!5e0!3m2!1ses-419!2sar!4v1691797445879!5m2!1ses-419!2sar"
+        },
+        {
+            "name": "Ciudad Villa de Merlo",
+            "image": "./ciudades/ojoDelTiempo.jpeg",
+            "state": "San Luis",
+            "country": "Argentina",
+            "interests": [
+                    "El ojo del Tiempo",
+                    "Reserva Florofaunista de Rincon del Este",
+                    "El Mirador Cabeza del Indio"
+            ],
+            "anniversary": "January 1",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53928.767875405305!2d-65.04899048076375!3d-32.35084209399983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d2e165a7228377%3A0x247528dcac38584b!2sMerlo%2C%20San%20Luis!5e0!3m2!1ses-419!2sar!4v1691797664411!5m2!1ses-419!2sar"
+        },
+        {
+            "name": "Puerto Madryn",
+            "image": "./ciudades/puntaCuevas.webp",
+            "state": "Chubut",
+            "country": "Argentina",
+            "interests": [
+                    "Parque Historico Punta Cuevas",
+                    "Ecocentro Pampa Azul",
+                    "Playa el Doradillo"
+            ],
+            "anniversary": "July 28",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d187700.75367184865!2d-65.02390519999999!3d-42.6862645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbe02355e87a2ead1%3A0x1e890d2810b44382!2sPuerto%20Madryn%2C%20Chubut!5e0!3m2!1ses-419!2sar!4v1691797920435!5m2!1ses-419!2sar"
+        },
+        {
+            "name": "Salta",
+            "image": "./ciudades/sanBernardo.jpeg",
+            "state": "Salta",
+            "country": "Argentina",
+            "interests": [
+                    "Catedral Basilica de Salta",
+                    "Cerro San Bernardo",
+                    "Tren a las Nubes"
+            ],
+            "anniversary": "April 16",
+            "location": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d81918.23802570954!2d-65.4680151719793!3d-24.853299013454265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x941bc3a35151b7f9%3A0xa5cd992cd587f206!2sSalta!5e0!3m2!1ses-419!2sar!4v1691798227136!5m2!1ses-419!2sar"
+        }
+    ]
+}

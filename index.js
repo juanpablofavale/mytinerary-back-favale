@@ -1,13 +1,27 @@
 import express from "express";
-import cityRouter from "./router/cityRouter.js";
 import './config/database.js'
-const server = express()
 import 'dotenv/config.js'
+import cors from 'cors'
+import indexRouter from './router/indexRouter.js'
+import notFoundHandler from "./middlewares/notFoundHandler.js";
+import errorHanler from "./middlewares/errorHanler.js";
 
-server.use('/cities', cityRouter)
+const server = express()
+
+server.use(cors())
+server.use(express.json())
+
+server.use('/api', indexRouter)
 
 server.get('/', (req, res, next) => {
-    res.send("Servidor de prueba en express")
+    res.json({
+        response: "Bienvenido a la API",
+        success: true,
+        error: null
+    })
 })
+
+server.use(notFoundHandler)
+server.use(errorHanler)
 
 server.listen(process.env.PORT, () => {console.log("Servidor escuchando en el puerto " + process.env.PORT)})

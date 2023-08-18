@@ -4,8 +4,12 @@ let collection = 'cities'
 
 let schema = new Schema({
     name: {type:String, required: true},
-    img: {type:String, required: true},
-    id: {type:String, required: true}
+    image: {type:String, required: true},
+    state: {type:String, required: true},
+    country: {type:String, required: true},
+    interests: [String],
+    anniversary: {type:String, required: true},
+    location: {type:String, required: true}
 }, {
     timestamps: true
 })
