@@ -21,15 +21,19 @@ const cityControler = {
             queries.name = new RegExp("^" + req.query.name, "i")
         }
 
-        genRes.col.pg = req.query?.pg
-        genRes.col.count = req.query?.count
-        genRes.col.docCount = await City.countDocuments()
-        genRes.col.pgCount = Math.ceil(genRes.col.docCount / genRes.col.count)
-
-        const skp = (genRes.col.count * genRes.col.pg)
 
         try {
+            genRes.col.pg = +req.query?.pg || 0
+            genRes.col.count = +req.query?.count || 0
+
+            const skp = (genRes.col.count * genRes.col.pg)
+
             genRes.response = await City.find(queries).skip(skp).limit(genRes.col.count)
+
+            genRes.col.docCount = await City.countDocuments(queries)
+            genRes.col.pgCount = Math.ceil(genRes.col.docCount / genRes.col?.count)
+            genRes.col.count = genRes.response.length || 0
+
             res.status(200).json(genRes)
         } catch (err) {
             next(err)
