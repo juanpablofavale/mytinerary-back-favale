@@ -1,6 +1,12 @@
 import City from "../models/City.js"
 
 const genRes = {
+    col:{
+        pg: 0,
+        count:0,
+        pgCount:0,
+        docCount:0
+    },
     response: [],
     success: true,
     error: null
@@ -8,13 +14,23 @@ const genRes = {
 
 const cityControler = {
     getAllCities: async (req, res, next) => {
+
         let queries = {}
+
         if (req.query?.name){
             queries.name = new RegExp("^" + req.query.name, "i")
         }
+
+        genRes.col.pg = req.query?.pg
+        genRes.col.count = req.query?.count
+        genRes.col.docCount = await City.countDocuments()
+        genRes.col.pgCount = Math.ceil(genRes.col.docCount / genRes.col.count)
+
+        const skp = (genRes.col.count * genRes.col.pg)
+
         try {
-            genRes.response = await City.find(queries)
-	    res.status(200).json(genRes)
+            genRes.response = await City.find(queries).skip(skp).limit(genRes.col.count)
+            res.status(200).json(genRes)
         } catch (err) {
             next(err)
         }
