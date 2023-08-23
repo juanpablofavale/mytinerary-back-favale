@@ -4,7 +4,6 @@ import cityRouter from './cityRouter.js'
 let router = Router()
 
 router.use('/cities', cityRouter)
-router.use('/tineraries', tineraryRouter)
 
 router.get('/', (req, res, next)=>{
     res.send({
