@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import cityRouter from './cityRouter.js'
+import tineraryRouter from './tineraryRouter.js'
 
 let router = Router()
 
