@@ -24,4 +24,4 @@ server.get('/', (req, res, next) => {
 server.use(notFoundHandler)
 server.use(errorHanler)
 
-server.listen(process.env.PORT, () => {console.log("Servidor escuchando en el puerto " + process.env.PORT)})
+server.listen(process.env.PORT, () => {console.log("Servidor escuchando en http://localhost:" + process.env.PORT)})
