@@ -1,10 +1,13 @@
 import { Router } from 'express'
 import cityRouter from './cityRouter.js'
+import itineraryRouter from './itineraryRouter.js'
+import activityRouter from './activityRouter.js'
 
 let router = Router()
 
 router.use('/cities', cityRouter)
-router.use('/tineraries', tineraryRouter)
+router.use('/itineraries', itineraryRouter)
+router.use('/activities', activityRouter)
 
 router.get('/', (req, res, next)=>{
     res.send({
