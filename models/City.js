@@ -9,7 +9,8 @@ let schema = new Schema({
     country: {type:String, required: true},
     interests: [String],
     anniversary: {type:String, required: true},
-    location: {type:String, required: true}
+    location: {type:String, required: true}, 
+    itineraries_id: [{type:Types.ObjectId, ref:'itineraries'}]
 }, {
     timestamps: true
 })

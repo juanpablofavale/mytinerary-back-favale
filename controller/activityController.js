@@ -1,11 +1,9 @@
 import Activity from "../models/Activity.js"
+import Itinerary from "../models/Itinerary.js"
 
 const genRes = {
     col:{
-        pg: 0,
         count:0,
-        pgCount:0,
-        docCount:0
     },
     response: [],
     success: true,
@@ -31,9 +29,10 @@ const activityController = {
             next(error)
         }
     },
-    createMany: async (req, res, next) => {
+    createOne: async (req, res, next) => {
         try {
             genRes.response = await Activity.create(req.body)
+            genRes.itineraryChange = await Itinerary.findByIdAndUpdate(genRes.response.itinerary_id, { $push:{activities_id: genRes.response._id}}, {new:true})
             genRes.col.count = genRes.response.length
             res.status(201).json(genRes)
         } catch (error) {

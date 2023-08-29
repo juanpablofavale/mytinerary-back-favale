@@ -5,7 +5,7 @@ let collection = 'activities'
 let schema = new Schema({
     image: {type: String, required:true},
     name: {type: String, required:true},
-    itinerary_id: {type: Types.ObjectId, ref:'itineraries'}
+    itinerary_id: {type: Types.ObjectId, ref:'itineraries', required:true}
 })
 
 let Activity = model(collection, schema)
