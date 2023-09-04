@@ -51,6 +51,7 @@ const activityController = {
     deleteOne: async (req, res, next) => {
         try {
             genRes.response = await Activity.findByIdAndDelete(req.params.id)
+            genRes.itineraryChange = await Itinerary.findByIdAndUpdate(genRes.response.itinerary_id, { $pull:{activities_id: genRes.response._id}}, {new:true})
             genRes.col.count = genRes.response.length
             res.status(200).json(genRes)
         } catch (error) {

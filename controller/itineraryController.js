@@ -59,6 +59,7 @@ import City from "../models/City.js"
         deleteAItinerary: async (req, res, next) =>{
             try {
                 genRes.response = await Itinerary.findByIdAndDelete(req.params.id)
+                genRes.cityChange = await City.findByIdAndUpdate(genRes.response.city_id, {$pull: { itineraries_id: genRes.response._id}}, { new:true })
                 res.status(200).json(genRes)
             } catch (error) {
                 next(error)
