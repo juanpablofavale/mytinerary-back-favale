@@ -11,7 +11,8 @@ let schema = new Schema({
     hashtags: [{type:String, require:true}],
     comments: [{type:String}],
     city_id: {type:Types.ObjectId, ref: 'cities', required:true},
-    activities_id: [{type: Types.ObjectId, ref: 'activities'}]
+    activities_id: [{type: Types.ObjectId, ref: 'activities'}],
+    name: {type:String, require:true}
 })
 
 let Itinerary = model(collection, schema)
