@@ -9,7 +9,7 @@ let schema = new Schema({
     lastName: {type:String, required:true},
     image: {type:String},
     country: {type:String, required:true},
-    role: {type:String, required:true, default:"user", enum:["user", "admin", "guide"]},
+    role: {type:String, default:"user", enum:["user", "admin", "guide"]},
     verify: {type:Boolean, default:false}
 })
 

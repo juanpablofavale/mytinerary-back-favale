@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import bcryptjs from 'bcryptjs'
 
 const genRes = {
     response: [],
@@ -8,8 +9,12 @@ const genRes = {
 
 const userController = {
     signUp: async (req, res, next) => {
+        const passHash = bcryptjs.hashSync(req.body.password)
+        const auxData = {...req.body, password:passHash}
+        delete auxData?.verify
+        delete auxData?.role
         try {
-            const response = await User.create(req.body)
+            const response = await User.create(auxData)
             genRes.response = response
             res.status(201).json(genRes)
         } catch (error) {
