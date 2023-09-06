@@ -1,17 +1,20 @@
 import Activity from "../models/Activity.js"
 import Itinerary from "../models/Itinerary.js"
 
-const genRes = {
-    col:{
-        count:0,
-    },
-    response: [],
-    success: true,
-    error: null
+const initResponse = () => {
+    return {
+        col:{
+            count:0,
+        },
+        response: [],
+        success: true,
+        error: null
+    }
 }
 
 const activityController = {
     getAll: async (req, res, next) => {
+        const genRes = initResponse()
         try {
             genRes.response = await Activity.find()
             genRes.col.count = genRes.response.length
@@ -21,6 +24,7 @@ const activityController = {
         }
     },
     getById: async (req, res, next) => {
+        const genRes = initResponse()
         try {
             genRes.response = await Activity.findById(req.params.id)
             genRes.col.count = genRes.response.length
@@ -30,6 +34,7 @@ const activityController = {
         }
     },
     createOne: async (req, res, next) => {
+        const genRes = initResponse()
         try {
             genRes.response = await Activity.create(req.body)
             genRes.itineraryChange = await Itinerary.findByIdAndUpdate(genRes.response.itinerary_id, { $push:{activities_id: genRes.response._id}}, {new:true})
@@ -40,6 +45,7 @@ const activityController = {
         }
     },
     updateOne: async (req, res, next) => {
+        const genRes = initResponse()
         try {
             genRes.response = await Activity.findByIdAndUpdate(req.params.id, req.body, {new:true})
             genRes.col.count = genRes.response.length
@@ -49,6 +55,7 @@ const activityController = {
         }
     },
     deleteOne: async (req, res, next) => {
+        const genRes = initResponse()
         try {
             genRes.response = await Activity.findByIdAndDelete(req.params.id)
             genRes.itineraryChange = await Itinerary.findByIdAndUpdate(genRes.response.itinerary_id, { $pull:{activities_id: genRes.response._id}}, {new:true})

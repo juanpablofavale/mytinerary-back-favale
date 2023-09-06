@@ -1,19 +1,22 @@
 import City from "../models/City.js"
 
-const genRes = {
-    col:{
-        pg: 0,
-        count:0,
-        pgCount:0,
-        docCount:0
-    },
-    response: [],
-    success: true,
-    error: null
+const initResponse = () => {
+    return {
+        col:{
+            pg: 0,
+            count:0,
+            pgCount:0,
+            docCount:0
+        },
+        response: [],
+        success: true,
+        error: null
+    }
 }
 
 const cityControler = {
     getAllCities: async (req, res, next) => {
+        const genRes = initResponse()
 
         let queries = {}
 
@@ -40,6 +43,7 @@ const cityControler = {
         }
     },
     getCityById: async (req, res, next) => {
+        const genRes = initResponse()
         try {
             genRes.response = await City.findById(req.params.id).populate({path:'itineraries_id', populate:{path:'activities_id'}})
             res.status(200).json(genRes)
@@ -48,6 +52,7 @@ const cityControler = {
         }
     },
     createManyCities: async (req, res, next) => {
+        const genRes = initResponse()
         try {
             genRes.response = await City.create(req.body)
             res.status(201).json(genRes)
@@ -56,6 +61,7 @@ const cityControler = {
         }
     },
     updateCity: async (req, res, next) => {
+        const genRes = initResponse()
         try {
             genRes.response = await City.findByIdAndUpdate(req.params.id, req.body, {new:true})
             res.status(200).json(genRes)
@@ -64,6 +70,7 @@ const cityControler = {
         }
     },
     deleteCity: async (req, res, next) => {
+        const genRes = initResponse()
         try {
             genRes.response = await City.findByIdAndDelete(req.params.id)
             res.status(200).json(genRes)

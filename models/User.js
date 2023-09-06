@@ -10,7 +10,8 @@ let schema = new Schema({
     image: {type:String},
     country: {type:String, required:true},
     role: {type:String, default:"user", enum:["user", "admin", "guide"]},
-    verify: {type:Boolean, default:false}
+    verified: {type:Boolean, default:false},
+    loggedIn: {type:Boolean, default:false}
 })
 
 let User = model(collection, schema)

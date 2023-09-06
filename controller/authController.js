@@ -1,18 +1,20 @@
 import User from "../models/User.js";
 import bcryptjs from 'bcryptjs'
+import jwt from 'jsonwebtoken'
 
-const genRes = {
-    response: [],
-    success: true,
-    error: null
+const initResponse = () => {
+    return {
+        response: [],
+        success: true,
+        error: null
+    }
 }
 
 const userController = {
     signUp: async (req, res, next) => {
-        const passHash = bcryptjs.hashSync(req.body.password)
+        const genRes = initResponse()
+        const passHash = bcryptjs.hashSync(req.body.password, 10)
         const auxData = {...req.body, password:passHash}
-        delete auxData?.verify
-        delete auxData?.role
         try {
             const response = await User.create(auxData)
             genRes.response = "User acount created successfully!"
@@ -22,8 +24,29 @@ const userController = {
         }
     },
     signIn: async (req, res, next) => {
-        genRes.response = "crear funcion para loguear"
+        const genRes = initResponse()
+        try {
+            if (!req.user.loggedIn){
+                const user = await User.findByIdAndUpdate(req.user._id, {loggedIn:true}, {new:true})
+            }
+            let userAux = {email:req.user.email, name: req.user.name, lastName: req.user.lastName, role:req.user.role, verified:req.user.verified}
+            const token = jwt.sign(userAux, process.env.SECRETKEY)
+            genRes.token = token
+            genRes.response = userAux
+        } catch (error) {
+            next(error)
+        }
         res.json(genRes)
+    },
+    signOut: async (req, res, next) => {
+        const genRes = initResponse()
+        try {
+            await User.findByIdAndUpdate(req.user._id, {loggedIn:false})
+            genRes.response = "User logged out"
+            res.json(genRes)
+        } catch (error) {
+            next(error)
+        }
     }
 }
 

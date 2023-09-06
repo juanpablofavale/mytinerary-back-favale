@@ -1,7 +1,8 @@
 import Itinerary from "../models/Itinerary.js";
 import City from "../models/City.js"
 
-    const genRes = {
+const initResponse = () => {
+    return {
         col:{
             count:0,
         },
@@ -9,9 +10,11 @@ import City from "../models/City.js"
         success: true,
         error: null
     }
+}
 
     const itineraryController = {
         getAllItineraries: async (req, res, next) =>{
+            const genRes = initResponse()
             try {
                 genRes.response = await Itinerary.find()
                 genRes.col.count = genRes.response.length
@@ -21,6 +24,7 @@ import City from "../models/City.js"
             }
         },
         getItinerariesByCity: async (req, res, next) =>{
+            const genRes = initResponse()
             try{
                 const city = await City.findOne({name: req.query.name})
                 genRes.response = await Itinerary.find({city_id:city._id})
@@ -31,6 +35,7 @@ import City from "../models/City.js"
             }
         },
         getItineraryById: async (req, res, next) =>{
+            const genRes = initResponse()
             try {
                 genRes.response = await Itinerary.findById(req.params.id).populate('activities_id')
                 genRes.col.count = genRes.response.length
@@ -40,6 +45,7 @@ import City from "../models/City.js"
             }
         },
         createOneItinerary: async (req, res, next) =>{
+            const genRes = initResponse()
             try {
                 genRes.response = await Itinerary.create(req.body)
                 genRes.cityChange = await City.findByIdAndUpdate(genRes.response.city_id, {$push: { itineraries_id: genRes.response._id}}, { new:true })
@@ -49,6 +55,7 @@ import City from "../models/City.js"
             }
         },
         updateAItinerary: async (req, res, next) =>{
+            const genRes = initResponse()
             try {
                 genRes.response = await Itinerary.findByIdAndUpdate(req.params.id, req.body, {new:true})
                 res.status(200).json(genRes)
@@ -57,6 +64,7 @@ import City from "../models/City.js"
             }
         },
         deleteAItinerary: async (req, res, next) =>{
+            const genRes = initResponse()
             try {
                 genRes.response = await Itinerary.findByIdAndDelete(req.params.id)
                 genRes.cityChange = await City.findByIdAndUpdate(genRes.response.city_id, {$pull: { itineraries_id: genRes.response._id}}, { new:true })

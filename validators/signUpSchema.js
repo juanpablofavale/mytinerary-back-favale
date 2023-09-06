@@ -5,7 +5,7 @@ const complexityOptions = {
     min: 6,
     max: 15,
     lowerCase: 1,
-    upperCase: 2,
+    upperCase: 1,
     numeric: 1,
     symbol: 1,
     requirementCount: 6
@@ -17,7 +17,5 @@ export const signUpSchema = joi.object({
     name: joi.string().required(),
     lastName: joi.string().required(),
     image: joi.string(),
-    country: joi.string().required(),
-    role: joi.any(),
-    verify: joi.any()
+    country: joi.string().required()
 })
