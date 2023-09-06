@@ -1,6 +1,5 @@
 import { Router } from "express";
 import itineraryController from "../controller/itineraryController.js";
-import controlPrice from "../middlewares/controlPrice.js";
 import validator from "../middlewares/validator.js";
 import { itinerarySchema } from "../validators/itinerarySchema.js";
 

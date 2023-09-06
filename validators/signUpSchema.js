@@ -11,7 +11,7 @@ const complexityOptions = {
     requirementCount: 6
 }
 
-export const authSchema = joi.object({
+export const signUpSchema = joi.object({
     email: joi.string().required().email(),
     password: joiPwd(complexityOptions),
     name: joi.string().required(),

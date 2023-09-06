@@ -15,7 +15,7 @@ const userController = {
         delete auxData?.role
         try {
             const response = await User.create(auxData)
-            genRes.response = response
+            genRes.response = "User acount created successfully!"
             res.status(201).json(genRes)
         } catch (error) {
             next(error)

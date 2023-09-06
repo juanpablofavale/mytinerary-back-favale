@@ -1,4 +1,4 @@
-import User from "../models/User.js"
+import User from "../models/User.js";
 
 const genRes = {
     response:"",
@@ -8,11 +8,12 @@ const genRes = {
 
 export default async (req, res, next) => {
     try {
-        const response = await User.findOne({email: req.body.email})
-        if (!response){
+        const user = await User.findOne({email: req.body.email})
+        if (user) {
+            req.user = user
             return next()
         }
-        genRes.response = "Error create account. User already exists!"
+        genRes.response = "Error user not found!"
         genRes.error=true
         genRes.success=false
         res.status(400).json(genRes)
