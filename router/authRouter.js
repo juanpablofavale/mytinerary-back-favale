@@ -13,7 +13,8 @@ const {signUp, signIn, signOut} = userController
 const authRouter = Router()
 
 authRouter.post('/register', validator(signUpSchema), existUser, signUp)
-authRouter.get('/login', validator(signInSchema), notExistUser, passCorrect, signIn)
-authRouter.get('/logout', passport.authenticate('jwt', {session:false}), notExistUser, signOut)
+authRouter.post('/login', validator(signInSchema), notExistUser, passCorrect, signIn)
+authRouter.post('/token', passport.authenticate('jwt', {session:false}), signIn)
+authRouter.post('/logout', passport.authenticate('jwt', {session:false}), notExistUser, signOut)
 
 export default authRouter

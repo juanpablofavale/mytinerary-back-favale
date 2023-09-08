@@ -26,10 +26,8 @@ const userController = {
     signIn: async (req, res, next) => {
         const genRes = initResponse()
         try {
-            if (!req.user.loggedIn){
-                const user = await User.findByIdAndUpdate(req.user._id, {loggedIn:true}, {new:true})
-            }
-            let userAux = {email:req.user.email, name: req.user.name, lastName: req.user.lastName, role:req.user.role, verified:req.user.verified}
+            const user = await User.findByIdAndUpdate(req.user._id, {loggedIn:true}, {new:true})
+            let userAux = {email:req.user.email, name: req.user.name, lastName: req.user.lastName, role:req.user.role, verified:req.user.verified, image:req.user.image}
             const token = jwt.sign(userAux, process.env.SECRETKEY)
             genRes.token = token
             genRes.response = userAux

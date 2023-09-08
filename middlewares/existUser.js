@@ -1,9 +1,11 @@
 import User from "../models/User.js"
 
-const genRes = {
-    response:"",
-    success:true,
-    error:false
+const initResponse = () => {
+    return {
+        details:[],
+        success:false,
+        error:true
+    }
 }
 
 export default async (req, res, next) => {
@@ -12,9 +14,8 @@ export default async (req, res, next) => {
         if (!response){
             return next()
         }
-        genRes.response = "Error create account. User already exists!"
-        genRes.error=true
-        genRes.success=false
+        const genRes = initResponse()
+        genRes.details = [{message:"Error create account. User already exists!", success: false , error: true}]
         res.status(400).json(genRes)
     } catch (error) {
         next(error)
