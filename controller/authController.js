@@ -15,6 +15,7 @@ const userController = {
         const genRes = initResponse()
         const passHash = bcryptjs.hashSync(req.body.password, 10)
         const auxData = {...req.body, password:passHash}
+        if(!auxData.image) delete auxData.image
         try {
             const response = await User.create(auxData)
             genRes.response = "User acount created successfully!"
