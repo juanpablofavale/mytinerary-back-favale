@@ -17,5 +17,5 @@ export const signUpSchema = joi.object({
     name: joi.string().required(),
     lastName: joi.string().required(),
     image: joi.any(),
-    country: joi.string().required()
+    country: joi.any()
 })
