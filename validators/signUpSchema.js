@@ -16,6 +16,6 @@ export const signUpSchema = joi.object({
     password: joiPwd(complexityOptions),
     name: joi.string().required(),
     lastName: joi.string().required(),
-    image: joi.string(),
+    image: joi.any(),
     country: joi.string().required()
 })
