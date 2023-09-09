@@ -8,7 +8,7 @@ let schema = new Schema({
     name: {type:String, required:true},
     lastName: {type:String, required:true},
     image: {type:String, default:"/usrDef.png"},
-    country: {type:String, required:true},
+    country: {type:String, default:"default"},
     role: {type:String, default:"user", enum:["user", "admin", "guide"]},
     verified: {type:Boolean, default:false},
     loggedIn: {type:Boolean, default:false}
