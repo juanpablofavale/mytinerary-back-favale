@@ -19,10 +19,10 @@ const userController = {
         try {
             const response = await User.create(auxData)
             genRes.response = "User acount created successfully!"
-            res.status(201).json(genRes)
         } catch (error) {
             next(error)
         }
+        res.status(201).json(genRes)
     },
     signIn: async (req, res, next) => {
         const genRes = initResponse()
@@ -42,10 +42,24 @@ const userController = {
         try {
             await User.findByIdAndUpdate(req.user._id, {loggedIn:false})
             genRes.response = "User logged out"
-            res.json(genRes)
         } catch (error) {
             next(error)
         }
+        res.json(genRes)
+    },
+    editProfile: async (req, res, next) => {
+        const genRes = initResponse()
+        try {
+            const res = await User.findByIdAndUpdate(req.user._id,{}, {new:true})
+            delete res.password
+            let userAux = {email:req.user.email, name: req.user.name, lastName: req.user.lastName, role:req.user.role, verified:req.user.verified, image:req.user.image}
+            const token = jwt.sign(userAux, process.env.SECRETKEY)
+            genRes.token = token
+            genRes.response = userAux
+        } catch (error) {
+            next(error)
+        }
+        res.json(genRes)
     }
 }
 
