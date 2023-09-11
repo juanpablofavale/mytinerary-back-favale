@@ -5,7 +5,7 @@ export const itinerarySchema = joi.object({
     usrName: joi.string().required(),
     price: joi.number().required().min(1).max(5),
     duration: joi.number().required(),
-    likes: joi.number().required(),
+    likes: joi.array().items(joi.any()),
     hashtags: joi.array().items(joi.string()).required(),
     comments: joi.array().items(joi.string()),
     city_id: joi.objectId().required(),

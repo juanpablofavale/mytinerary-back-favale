@@ -7,7 +7,7 @@ let schema = new Schema({
     usrName: {type:String, require:true},
     price: {type:Number, require:true},
     duration: {type:Number, require:true},
-    likes: {type:Number, require:true},
+    likes: [{type:String, default:[""]}],
     hashtags: [{type:String, require:true}],
     comments: [{type:String}],
     city_id: {type:Types.ObjectId, ref: 'cities', required:true},

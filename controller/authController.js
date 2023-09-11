@@ -35,7 +35,7 @@ const userController = {
         const genRes = initResponse()
         try {
             const user = await User.findByIdAndUpdate(req.user._id, {loggedIn:true}, {new:true})
-            let userAux = {email:req.user.email, name: req.user.name, lastName: req.user.lastName, role:req.user.role, verified:req.user.verified, image:req.user.image}
+            let userAux = {_id:req.user._id, email:req.user.email, name: req.user.name, lastName: req.user.lastName, role:req.user.role, verified:req.user.verified, image:req.user.image}
             const token = jwt.sign(userAux, process.env.SECRETKEY)
             genRes.token = token
             genRes.response = userAux

@@ -73,6 +73,22 @@ const initResponse = () => {
                 next(error)
             }
         },
+        updateLike: async (req, res, next) =>{
+            const genRes = initResponse()
+            try {
+                const iti = await Itinerary.findById(req.params.id)
+                if (iti.likes?.indexOf(req.user._id) == -1 || !iti.likes){
+                    const itineraryChange = await Itinerary.findByIdAndUpdate(iti._id, {$push: {likes:req.user._id}}, {new:true})
+                    genRes.response= itineraryChange
+                }else{
+                    const itineraryChange = await Itinerary.findByIdAndUpdate(iti._id, {$pull: {likes:req.user.id}}, {new:true})
+                    genRes.response= itineraryChange
+                }
+            } catch (error) {
+                next(error)
+            }
+            res.json(genRes)
+        }
     }
 
     export default itineraryController
