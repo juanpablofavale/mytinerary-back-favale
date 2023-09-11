@@ -3,7 +3,7 @@ import { Schema, model } from "mongoose";
 let collection = 'users'
 
 let schema = new Schema({
-    email: {type:String, required:true},
+    email: {type:String, required:true, unique:true},
     password: {type:String, required:true},
     name: {type:String, required:true},
     lastName: {type:String, required:true},

@@ -5,6 +5,7 @@ import { itinerarySchema } from "../validators/itinerarySchema.js";
 import passport from "../middlewares/passport.js";
 import notExistUser from "../middlewares/notExistUser.js";
 import isLoggedIn from "../middlewares/isLoggedIn.js";
+import rolePermissions from "../middlewares/rolePermissions.js";
 
 const { getAllItineraries, getItinerariesByCity, getItineraryById, createOneItinerary, updateAItinerary, deleteAItinerary} = itineraryController
 
@@ -14,7 +15,7 @@ itineraryRouter.get('/', getAllItineraries)
 itineraryRouter.get('/city', getItinerariesByCity)
 itineraryRouter.get('/:id', getItineraryById)
 
-itineraryRouter.use('*', passport.authenticate('jwt', {session:false}), notExistUser, isLoggedIn)
+itineraryRouter.use('*', passport.authenticate('jwt', {session:false}), notExistUser, isLoggedIn, rolePermissions)
 
 itineraryRouter.post('/', validator(itinerarySchema), createOneItinerary)
 itineraryRouter.put('/:id', validator(itinerarySchema), updateAItinerary)

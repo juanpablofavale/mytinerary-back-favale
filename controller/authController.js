@@ -15,8 +15,15 @@ const userController = {
         const genRes = initResponse()
         const passHash = bcryptjs.hashSync(req.body.password, 10)
         const auxData = {...req.body, password:passHash}
+
         if(!auxData.image) delete auxData.image
+
         try {
+            const count = await User.countDocuments()
+            if (count==0){
+                auxData.role="admin"
+            }
+
             const response = await User.create(auxData)
             genRes.response = "User acount created successfully!"
             res.status(201).json(genRes)
@@ -46,6 +53,32 @@ const userController = {
         } catch (error) {
             next(error)
         }
+    },
+    updateRole: async(req, res, next) => {
+        const genRes = initResponse()
+
+        const allowRoles = ['admin', 'guide', 'user']
+
+        const id = req.query?._id
+        const newRole = req.query?.role
+        if (allowRoles.indexOf(newRole)==-1){
+            genRes.response = "Role name " + newRole + " is not alowed!"
+            return res.json(genRes)
+        }
+        
+        if (req.user.role != "admin" && req.user._id == req.params._id){
+            genRes.response = "Permissions error or incorrect user identification! "
+            return res.json(genRes)
+        }
+
+        try {
+            const res = await User.findByIdAndUpdate(id, {role:newRole}, {new:true})
+            const resAux = {_id:res._id, email: res.email, role: res.role}
+            genRes.response = resAux
+        } catch (error) {
+            next(error)
+        }
+        res.json(genRes)
     }
 }
 
