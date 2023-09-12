@@ -7,6 +7,7 @@ import notExistUser from "../middlewares/notExistUser.js";
 import isLoggedIn from "../middlewares/isLoggedIn.js";
 import rolePermissions from "../middlewares/rolePermissions.js";
 import { itineraryLikesSchema } from "../validators/itineraryLikesSchema.js";
+import commentsRouter from "./comentsRouter.js";
 
 const { getAllItineraries, getItinerariesByCity, getItineraryById, createOneItinerary, updateAItinerary, deleteAItinerary, updateLike} = itineraryController
 
@@ -24,6 +25,6 @@ itineraryRouter.delete('/:id', rolePermissions, deleteAItinerary)
 
 itineraryRouter.put('/like/:id', updateLike)
 
-//itineraryRouter.put('/comment/:id', validator(itinerarySchema), updateAItinerary)
+itineraryRouter.use('/comments', commentsRouter)
 
 export default itineraryRouter
