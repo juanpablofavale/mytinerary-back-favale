@@ -2,9 +2,9 @@ import bcryptjs from 'bcryptjs'
 
 const initResponse = () => {
     return {
-        details:[],
-        success:true,
-        error:false
+        details: [],
+        success: false,
+        error: true
     }
 }
 
@@ -14,6 +14,6 @@ export default (req, res, next) => {
         return next()
     }
     const genRes = initResponse()
-    genRes.details = [{message:"Wrong Email or Password", success: false , error: true}]
+    genRes.details = ["Wrong Email or Password"]
     res.status(400).json(genRes)
 }

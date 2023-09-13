@@ -2,9 +2,9 @@ import User from "../models/User.js";
 
 const initResponse = () => {
     return {
-        details:[],
-        success:true,
-        error:false
+        details: [],
+        success: false,
+        error: true
     }
 }
 
@@ -17,9 +17,7 @@ export default async (req, res, next) => {
             req.user = user
             return next()
         }
-        genRes.details = [{message:"Wrong Email or Password", success: false , error: true}]
-        genRes.error=true
-        genRes.success=false
+        genRes.details = ["Wrong Email or Password"]
         res.status(400).json(genRes)
     } catch (error) {
         next(error)

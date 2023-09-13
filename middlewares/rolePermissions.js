@@ -8,7 +8,6 @@ const initResponse = () => {
 
 export default (req, res, next) => {
     const genRes = initResponse()
-    console.log(req.user)
     if (req.user.role == "admin" || req.user.role == "guide"){
         return next()
     }

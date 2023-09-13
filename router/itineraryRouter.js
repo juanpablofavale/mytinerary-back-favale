@@ -13,6 +13,7 @@ const { getAllItineraries, getItinerariesByCity, getItineraryById, createOneItin
 
 const itineraryRouter = Router()
 
+
 itineraryRouter.get('/', getAllItineraries)
 itineraryRouter.get('/city', getItinerariesByCity)
 itineraryRouter.get('/:id', getItineraryById)
@@ -25,6 +26,5 @@ itineraryRouter.delete('/:id', rolePermissions, deleteAItinerary)
 
 itineraryRouter.put('/like/:id', updateLike)
 
-itineraryRouter.use('/comments', commentsRouter)
 
 export default itineraryRouter

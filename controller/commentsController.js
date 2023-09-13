@@ -15,7 +15,6 @@ const initResponse = () => {
 const commentsController = {
     getAll: async (req, res, next) => {
         const genRes = initResponse()
-        console.log("Llega")
         try {
             const resp = await Comments.find()
             genRes.response = resp
@@ -39,7 +38,7 @@ const commentsController = {
         const genRes = initResponse()
         try {
             const idItin = req.params.id
-            const resp = await Comments.findById(idItin)
+            const resp = await Comments.find({itinerary_id:idItin})
             genRes.response = resp
             res.json(genRes)
         } catch (error) {
@@ -48,9 +47,10 @@ const commentsController = {
     },
     getByUserId: async (req, res, next) => {
         const genRes = initResponse()
+        console.log(req.params.id)
         try {
             const idUsr = req.params.id
-            const resp = await Comments.findById(idUsr)
+            const resp = await Comments.find({user_id:idUsr})
             genRes.response = resp
             res.json(genRes)
         } catch (error) {
@@ -60,9 +60,8 @@ const commentsController = {
     postOne: async (req, res, next) => {
         const genRes = initResponse()
         try {
-            const itin_id = req.params.id
             const resp = await Comments.create(req.body)
-            genRes.itineraryChange = await Itinerary.findByIdAndUpdate(itin_id, {$push: {comments: resp._id}}, {new: true})
+            genRes.itineraryChange = await Itinerary.findByIdAndUpdate(resp.itinerary_id, {$push: {comments: resp._id}}, {new: true})
             genRes.response = resp
             res.json(genRes)
         } catch (error) {
@@ -85,7 +84,7 @@ const commentsController = {
         try {
             const id = req.params.id
             const resp = await Comments.findByIdAndDelete(id)
-            genRes.itineraryChange = await Itinerary.findByIdAndDelete(resp.user_id, {$pull: {comments: resp._id}}, {new: true})
+            genRes.itineraryChange = await Itinerary.findByIdAndDelete(resp.itinerary_id, {$pull: {comments: resp._id}}, {new: true})
             genRes.response = resp
             res.json(genRes)
         } catch (error) {
