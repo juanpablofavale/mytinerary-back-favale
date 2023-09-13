@@ -48,7 +48,6 @@ const commentsController = {
     },
     getByUserId: async (req, res, next) => {
         const genRes = initResponse()
-        console.log(req.params.id)
         try {
             const idUsr = req.params.id
             const resp = await Comments.find({user_id:idUsr})
@@ -96,7 +95,9 @@ const commentsController = {
                 genRes.success = false
                 return res.status(400).json(genRes)
             }
-            genRes.itineraryChange = await Itinerary.findByIdAndUpdate(resp.itinerary_id, {$pull: {comments: resp._id}}, {new: true})
+            console.log(genRes.response.itinerary_id)
+            genRes.itineraryChange = await Itinerary.findByIdAndUpdate(genRes.response.itinerary_id, {$pull: {comments: genRes.response._id}}, {new: true})
+            console.log(genRes.itineraryChange)
             res.json(genRes)
         } catch (error) {
             next(error)
