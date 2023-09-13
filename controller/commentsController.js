@@ -95,9 +95,7 @@ const commentsController = {
                 genRes.success = false
                 return res.status(400).json(genRes)
             }
-            console.log(genRes.response.itinerary_id)
             genRes.itineraryChange = await Itinerary.findByIdAndUpdate(genRes.response.itinerary_id, {$pull: {comments: genRes.response._id}}, {new: true})
-            console.log(genRes.itineraryChange)
             res.json(genRes)
         } catch (error) {
             next(error)

@@ -12,7 +12,6 @@ export default async (req, res, next) => {
     const genRes = initResponse()
     try {
         const com = await Comment.findById(req.params.id)
-        console.log(com)
         if (!com){
             genRes.details = ["Error. The comment does not exist!"]
             return res.status(400).json(genRes)
