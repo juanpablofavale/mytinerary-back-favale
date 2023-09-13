@@ -38,7 +38,7 @@ const initResponse = () => {
         getItineraryById: async (req, res, next) =>{
             const genRes = initResponse()
             try {
-                genRes.response = await Itinerary.findById(req.params.id).populate('activities_id')
+                genRes.response = await Itinerary.findById(req.params.id).populate('activities_id').populate('comments')
                 genRes.col.count = genRes.response.length
                 res.status(200).json(genRes)
             } catch (error) {

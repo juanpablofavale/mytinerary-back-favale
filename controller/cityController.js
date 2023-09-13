@@ -46,7 +46,7 @@ const cityControler = {
     getCityById: async (req, res, next) => {
         const genRes = initResponse()
         try {
-            genRes.response = await City.findById(req.params.id).populate({path:'itineraries_id', populate:{path:'activities_id'}})
+            genRes.response = await City.findById(req.params.id).populate({path:'itineraries_id', populate:{path:'activities_id comments'}})
             res.status(200).json(genRes)
         } catch (err) {
             next(err)
