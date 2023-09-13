@@ -10,7 +10,8 @@ const initResponse = () => {
         },
         response: [],
         success: true,
-        error: null
+        error: null,
+        details: []
     }
 }
 
@@ -64,6 +65,12 @@ const cityControler = {
         const genRes = initResponse()
         try {
             genRes.response = await City.findByIdAndUpdate(req.params.id, req.body, {new:true})
+            if (!genRes.response){
+                genRes.details=["The city does not exist"]
+                genRes.error = true
+                genRes.success = false
+                return res.status(400).json(genRes)
+            }
             res.status(200).json(genRes)
         } catch (err) {
             next(err)
@@ -73,6 +80,12 @@ const cityControler = {
         const genRes = initResponse()
         try {
             genRes.response = await City.findByIdAndDelete(req.params.id)
+            if (!genRes.response){
+                genRes.details=["The city does not exist"]
+                genRes.error = true
+                genRes.success = false
+                return res.status(400).json(genRes)
+            }
             res.status(200).json(genRes)
         } catch (err) {
             next(err)

@@ -8,7 +8,8 @@ const initResponse = () => {
         },
         response: [],
         success: true,
-        error: null
+        error: null,
+        details: []
     }
 }
 
@@ -58,6 +59,12 @@ const initResponse = () => {
             const genRes = initResponse()
             try {
                 genRes.response = await Itinerary.findByIdAndUpdate(req.params.id, req.body, {new:true})
+                if (!genRes.response){
+                    genRes.details=["The itinerary does not exist"]
+                    genRes.error = true
+                    genRes.success = false
+                    return res.status(400).json(genRes)
+                }
                 res.status(200).json(genRes)
             } catch (error) {
                 next(error)
@@ -67,6 +74,12 @@ const initResponse = () => {
             const genRes = initResponse()
             try {
                 genRes.response = await Itinerary.findByIdAndDelete(req.params.id)
+                if (!genRes.response){
+                    genRes.details=["The itinerary does not exist"]
+                    genRes.error = true
+                    genRes.success = false
+                    return res.status(400).json(genRes)
+                }
                 genRes.cityChange = await City.findByIdAndUpdate(genRes.response.city_id, {$pull: { itineraries_id: genRes.response._id}}, { new:true })
                 res.status(200).json(genRes)
             } catch (error) {

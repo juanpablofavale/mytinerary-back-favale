@@ -8,7 +8,8 @@ const initResponse = () => {
         },
         response: [],
         success: true,
-        error: null
+        error: null, 
+        details: []
     }
 }
 
@@ -48,6 +49,12 @@ const activityController = {
         const genRes = initResponse()
         try {
             genRes.response = await Activity.findByIdAndUpdate(req.params.id, req.body, {new:true})
+            if (!genRes.response){
+                genRes.details=["The activity does not exist"]
+                genRes.error = true
+                genRes.success = false
+                return res.status(400).json(genRes)
+            }
             genRes.col.count = genRes.response.length
             res.status(200).json(genRes)
         } catch (error) {
@@ -58,6 +65,12 @@ const activityController = {
         const genRes = initResponse()
         try {
             genRes.response = await Activity.findByIdAndDelete(req.params.id)
+            if (!genRes.response){
+                genRes.details=["The activity does not exist"]
+                genRes.error = true
+                genRes.success = false
+                return res.status(400).json(genRes)
+            }
             genRes.itineraryChange = await Itinerary.findByIdAndUpdate(genRes.response.itinerary_id, { $pull:{activities_id: genRes.response._id}}, {new:true})
             genRes.col.count = genRes.response.length
             res.status(200).json(genRes)

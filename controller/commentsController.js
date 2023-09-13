@@ -8,7 +8,8 @@ const initResponse = () => {
         },
         response: [],
         success: true,
-        error: null
+        error: null,
+        details: []
     }
 }
 
@@ -72,8 +73,13 @@ const commentsController = {
         const genRes = initResponse()
         try {
             const id = req.params.id
-            const resp = await Comments.findByIdAndUpdate(id, req.body, {new:true})
-            genRes.response = resp
+            genRes.response = await Comments.findByIdAndUpdate(id, req.body, {new:true})
+            if (!genRes.response){
+                genRes.details=["The comment does not exist"]
+                genRes.error = true
+                genRes.success = false
+                return res.status(400).json(genRes)
+            }
             res.json(genRes)
         } catch (error) {
             next(error)
@@ -83,9 +89,14 @@ const commentsController = {
         const genRes = initResponse()
         try {
             const id = req.params.id
-            const resp = await Comments.findByIdAndDelete(id)
-            genRes.itineraryChange = await Itinerary.findByIdAndDelete(resp.itinerary_id, {$pull: {comments: resp._id}}, {new: true})
-            genRes.response = resp
+            genRes.response = await Comments.findByIdAndDelete(id)
+            if (!genRes.response){
+                genRes.details=["The comment does not exist"]
+                genRes.error = true
+                genRes.success = false
+                return res.status(400).json(genRes)
+            }
+            genRes.itineraryChange = await Itinerary.findByIdAndUpdate(resp.itinerary_id, {$pull: {comments: resp._id}}, {new: true})
             res.json(genRes)
         } catch (error) {
             next(error)
