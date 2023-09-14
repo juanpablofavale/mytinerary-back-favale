@@ -23,9 +23,14 @@ const userController = {
             if (count==0){
                 auxData.role="admin"
             }
-
+            auxData.loggedIn = true
+            
             const response = await User.create(auxData)
-            genRes.response = "User acount created successfully!"
+            
+            let userAux = {_id:response._id, email:response.email, name: response.name, lastName: response.lastName, role:response.role, verified:response.verified, image:response.image}
+            const token = jwt.sign(userAux, process.env.SECRETKEY)
+            genRes.response = userAux
+            genRes.token = token
             res.status(201).json(genRes)
         } catch (error) {
             next(error)
