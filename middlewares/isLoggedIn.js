@@ -15,7 +15,7 @@ export default async (req, res, next) => {
         if(user.loggedIn){
             return next()
         }
-        genRes.details = ["User is not logged in!"]
+        genRes.details = [{message:"User is not logged in!"}]
         res.status(400).json(genRes)
     } catch (error) {
         next(error)

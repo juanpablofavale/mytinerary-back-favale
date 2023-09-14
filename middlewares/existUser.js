@@ -15,7 +15,7 @@ export default async (req, res, next) => {
             return next()
         }
         const genRes = initResponse()
-        genRes.details = ["Error create account. User already exists!"]
+        genRes.details = [{message:"Error create account. User already exists!"}]
         res.status(400).json(genRes)
     } catch (error) {
         next(error)

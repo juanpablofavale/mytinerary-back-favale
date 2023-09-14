@@ -31,6 +31,7 @@ confirmar con mail el registro?
 
 nodemailer para enviar mail de confirmacion?
 
+
 credenciales de prueba
 asd@asd.com
 Cel2983-

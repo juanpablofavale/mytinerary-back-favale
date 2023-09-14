@@ -12,6 +12,6 @@ export default (req, res, next) => {
         return next()
     }
 
-    genRes.details = ["Permissions error!"]
+    genRes.details = [{message:"Permissions error!"}]
     res.status(400).json(genRes)
 }

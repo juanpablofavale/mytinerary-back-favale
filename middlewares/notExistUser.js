@@ -17,7 +17,7 @@ export default async (req, res, next) => {
             req.user = user
             return next()
         }
-        genRes.details = ["Wrong Email or Password"]
+        genRes.details = [{message:"Wrong Email or Password"}]
         res.status(400).json(genRes)
     } catch (error) {
         next(error)

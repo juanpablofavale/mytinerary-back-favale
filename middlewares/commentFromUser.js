@@ -18,7 +18,7 @@ export default async (req, res, next) => {
         }else if (String(com.user_id) == String(req.user._id) || req.user.role=="admin"){
             return next()
         } 
-        genRes.details = ["Error. The comment is not from this user!"]
+        genRes.details = [{message:"Error. The comment is not from this user!"}]
         res.status(400).json(genRes)
     } catch (error) {
         console.log("error")

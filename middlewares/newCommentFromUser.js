@@ -14,7 +14,7 @@ export default (req, res, next) => {
         if (String(req.body.user_id) == String(req.user._id)){
             return next()
         }
-        genRes.details = ["User permissions error!"]
+        genRes.details = [{message:"User permissions error!"}]
         res.status(400).json(genRes)
     } catch (error) {
         next(error)

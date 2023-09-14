@@ -14,6 +14,6 @@ export default (req, res, next) => {
         return next()
     }
     const genRes = initResponse()
-    genRes.details = ["Wrong Email or Password"]
+    genRes.details = [{message:"Wrong Email or Password"}]
     res.status(400).json(genRes)
 }
