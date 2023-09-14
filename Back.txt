@@ -25,6 +25,9 @@ Back
 	controlar si existe algo antes de tratar de borrarlo o editarlo - ok
 	un usuario puede comentar muchas veces un mismo itinerario - ok
 
+
+cuando no hay red desloguea mal! (server down)
+
 Upload imagen o solo nombre de la imagen?
 
 confirmar con mail el registro?
