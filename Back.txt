@@ -1,0 +1,36 @@
+Back
+	hacer manejo de errores - ok
+	control de informacion no encontrada - resuelto en el front
+	paginacion? ver mongoose skip y limit - ok
+	validar cantidad de billetes en el backend - ok
+	agregar titulo a los itinerarios - ok
+	control de error back - ok
+	agregar login por token - ok
+	las peticiones de auth deben ser post al enviar el body - ok
+	controlar que si se recibe nombre de imagen vacia guarde valor por defecto - ok
+	agregar pais por defecto - ok
+	primer usuario creado recibe rol de admin - ok
+	usuarios admin pueden cambiar roles - ok
+	usuarios con rol admin tienen todas las capacidades - ok
+	usuarios con rol guide pueden crear documentos - ok
+	crear ruta para like - ok
+	usuarios con rol user pueden dar like o comentar itinerarios - ok
+	crear ruta para comentarios - ok
+	cambiar esquema de validacion de itinerarios - ok
+	crear esquema de validacion de comentarios - ok
+	pensar bien como manejar likes y comentarios - ok
+	**** un solo controlador pone o saca el like? si
+	**** comentarios como otra coleccion? si
+	error al crear el comentario. no se agrega a la lista de itinerarios - ok
+	controlar si existe algo antes de tratar de borrarlo o editarlo - ok
+	un usuario puede comentar muchas veces un mismo itinerario - ok
+
+Upload imagen o solo nombre de la imagen?
+
+confirmar con mail el registro?
+
+nodemailer para enviar mail de confirmacion?
+
+credenciales de prueba
+asd@asd.com
+Cel2983-
